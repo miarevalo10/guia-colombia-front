@@ -1,0 +1,48 @@
+<h2>Registro</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+        <mat-form-field>
+            <input matInput placeholder="Login" [formControl]="username" required>
+            <mat-error
+                *ngIf="registerForm.controls['username'].required && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" [formControl]="Password" required>
+            <mat-error
+                *ngIf="registerForm.controls['password'].required && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Nombre" [formControl]="firstName" required>
+            <mat-error
+                *ngIf="registerForm.controls['firstName'].required && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Apellido" [formControl]="lastName" required>
+            <mat-error
+                *ngIf="registerForm.controls['lastName'].required && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" [formControl]="address" required>
+            <mat-error
+                *ngIf="registerForm.controls['address'].required && (registerForm.controls['address'].dirty || registerForm.controls['address'].touched)">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Teléfono" [formControl]="phone" required>
+            <mat-error
+                *ngIf="registerForm.controls['phone'].required && (registerForm.controls['phone'].dirty || registerForm.controls['phone'].touched)">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="actions" style="float: right;">
+        <button mat-flat-button (click)="onCancel()">Cancel</button>
+        <button type="submit" [disabled]="loading" mat-flat-button color="primary" [disabled]="!registerForm.valid">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Registro
+        </button>
+    </div>
+</form>
