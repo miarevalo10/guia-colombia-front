@@ -7,6 +7,7 @@ import { MatIconModule, MatToolbarModule, MatDialogModule, MatButtonModule, MatI
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatIconModule,
     MatToolbarModule,
     MatDialogModule,
