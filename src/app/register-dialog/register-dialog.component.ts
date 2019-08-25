@@ -14,7 +14,7 @@ export class RegisterDialogComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, public dialogRef: MatDialogRef<RegisterDialogComponent>,
-    private userService: UserService, public dialog: MatDialog) { }
+              private userService: UserService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.initializeForm();
