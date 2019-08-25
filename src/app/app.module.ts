@@ -8,11 +8,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterDialogComponent
+    RegisterDialogComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
