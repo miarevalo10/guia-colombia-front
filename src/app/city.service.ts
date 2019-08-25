@@ -9,7 +9,7 @@ import {environment} from "../environments/environment";
 })
 export class CityService {
 
-    CITY_SERVICE = `${environment.url}/city`
+    CITY_SERVICE = `${environment.url}/guiaturismo/city`
     private cityList = [];
 
     constructor(private httpClient: HttpClient) {

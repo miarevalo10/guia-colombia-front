@@ -9,12 +9,14 @@ import { RegisterDialogComponent } from './register-dialog/register-dialog.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './filter/filter.component';
+import { GuideListComponent } from './guide-list/guide-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterDialogComponent,
-    FilterComponent
+    FilterComponent,
+    GuideListComponent
   ],
   imports: [
     BrowserModule,

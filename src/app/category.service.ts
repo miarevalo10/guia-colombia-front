@@ -9,7 +9,7 @@ import {environment} from '../environments/environment';
 })
 export class CategoryService {
 
-    CATEGORY_SERVICE = `${environment.url}/category`
+    CATEGORY_SERVICE = `${environment.url}/guiaturismo/category`
     private categoryList: [];
 
     constructor(private httpClient: HttpClient) {
@@ -19,9 +19,9 @@ export class CategoryService {
         this.categoryList = [];
         this.httpClient.get(this.CATEGORY_SERVICE).subscribe((data: Array<any>) => {
             data.forEach(dataItem => {
-                let category = Category();
+                let category = new Category();
                 category.id = dataItem.pk;
-                category.name = dataItem.fields.name;
+                category.description = dataItem.fields.description;
                 this.categoryList.push(category);
             });
         });

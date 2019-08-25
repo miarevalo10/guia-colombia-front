@@ -3,7 +3,8 @@
         <div>
             <h3>CIUDAD</h3>
             <select name="cities">
-                <option *ngFor="let city of cityList" value={{city.name}}>
+                <option *ngFor="let city of cityList" value={{city.id}}>
+                    {{city.name}}
                 </option>
             </select>
         </div>
@@ -11,8 +12,9 @@
     <div class="column">
         <div>
             <h3>CATEGORIA</h3>
-            <select name="cars">
-                <option *ngFor="let category of categoryList" value={{category.name}}>
+            <select name="category">
+                <option *ngFor="let category of categoryList" value={{category.id}}>
+                    {{category.description}}
                 </option>
             </select>
         </div>
