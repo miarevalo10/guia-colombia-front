@@ -1,0 +1,22 @@
+<h2>Login</h2>
+<form [formGroup]="loginForm">
+    <div class="form-container">
+        <mat-form-field>
+            <input matInput placeholder="Login" formControlName="username" required>
+            <mat-error *ngIf="loginForm.controls.username.hasError('required')">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Contraseña" formControlName="password" required>
+            <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+
+    </div>
+    <div class="actions" style="float: right;">
+        <button mat-flat-button (click)="onCancel()">Cancel</button>
+        <button type="submit" (click)="onSubmit()" mat-flat-button color="primary" [disabled]="!loginForm.valid">
+            Ingresar
+        </button>
+    </div>
+</form>

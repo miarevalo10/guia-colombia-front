@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   usersUrl = `${environment.url}/users/user/`;
-
+  loginUrl = `${environment.url}/guiaturismo/login/`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,11 +17,19 @@ export class UserService {
     return key.replace( /([A-Z])/g, '_$1').toLowerCase();
   }
 
-  registerUser(user: {}): Observable<any> {
+  transformUser(user: {}) {
     const userSnakeCase = {};
     for (const key of Object.keys(user)) {
       userSnakeCase[this.toSnakeCase(key)] = user[key];
     }
-    return this.httpClient.post(this.usersUrl, userSnakeCase);
+    return userSnakeCase;
+  }
+
+  registerUser(user: {}): Observable<any> {
+    return this.httpClient.post(this.usersUrl, this.transformUser(user));
+  }
+
+  login(user: {}): Observable<any>  {
+    return this.httpClient.post(this.loginUrl, this.transformUser(user));
   }
 }

@@ -44,9 +44,7 @@
     </div>
     <div class="actions" style="float: right;">
         <button mat-flat-button (click)="onCancel()">Cancel</button>
-        <button type="submit" (click)="onSubmit()" [disabled]="loading" mat-flat-button color="primary"
-            [disabled]="!registerForm.valid">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        <button type="submit" (click)="onSubmit()" mat-flat-button color="primary" [disabled]="!registerForm.valid">
             Registro
         </button>
     </div>
