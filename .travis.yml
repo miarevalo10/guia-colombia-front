@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "10.16"
+dist: trusty
+sudo: required
+branches:
+  only:
+  - master
+before_script:
+  - npm install -g @angular/cli
+script:
+- ng lint
+- ng build --prod --base-href https://miarevalo10.github.io/guia-colombia-front/
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/guia-colombia-front
+  on:
+    branch: master
