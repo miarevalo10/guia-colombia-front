@@ -19,7 +19,7 @@ import { GuideListComponent } from './guide-list/guide-list.component';
     AppComponent,
     RegisterDialogComponent,
     LoginDialogComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
     RegisterDialogComponent,
     FilterComponent,
     GuideListComponent
