@@ -13,6 +13,7 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { FilterComponent } from './filter/filter.component';
 import { GuideListComponent } from './guide-list/guide-list.component';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { GuideListComponent } from './guide-list/guide-list.component';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

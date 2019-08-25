@@ -1,1 +1,8 @@
-
+<mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let guide of guideList">
+        <img src="{{guide.photo}}">
+        <h3>{{guide.name}}</h3>
+        <h3>{{guide.phrase}}</h3>
+        <h3>{{guide.phone}}</h3>
+    </mat-grid-tile>
+</mat-grid-list>
