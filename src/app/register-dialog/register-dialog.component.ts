@@ -22,26 +22,25 @@ export class RegisterDialogComponent implements OnInit {
 
   initializeForm() {
     this.registerForm = this.formBuilder.group({
-      email: [null, [Validators.required]],
-      username: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      confirmPassword: [null, [Validators.required]],
-      firstName: [null, [Validators.required]],
-      lastName: [null, [Validators.required]],
-      phone: [null, [Validators.required]]
+      email: [null, { validators: [Validators.required, Validators.email], updateOn: 'submit' }],
+      username: [null, { validators: [Validators.required], updateOn: 'submit' }],
+      password: [null, { validators: [Validators.required], updateOn: 'submit' }],
+      confirmPassword: [null, { validators: [Validators.required], updateOn: 'submit' }],
+      firstName: [null, { validators: [Validators.required], updateOn: 'submit' }],
+      lastName: [null, { validators: [Validators.required], updateOn: 'submit' }],
+      phone: [null, { validators: [Validators.required], updateOn: 'submit' }]
     });
   }
-  get f() { return this.registerForm.controls; }
 
   onCancel(): void {
     this.dialogRef.close();
   }
 
   onSubmit() {
-    console.log('Submitted', this.registerForm );
     if (this.registerForm.valid) {
       this.userService.registerUser(this.registerForm.value).subscribe(result => {
         console.log('result', result);
+        this.dialogRef.close();
       });
     }
   }

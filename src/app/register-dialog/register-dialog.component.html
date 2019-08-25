@@ -1,52 +1,51 @@
 <h2>Registro</h2>
-<form [formGroup]="registerForm" >
+<form [formGroup]="registerForm">
     <div class="form-container">
         <mat-form-field>
             <input matInput placeholder="Login" formControlName="username" required>
-            <mat-error
-                *ngIf="registerForm.controls['username'].required && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+            <mat-error *ngIf="registerForm.controls.username.hasError('required')">
                 Este campo es requerido</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput type="password" placeholder="Password" formControlName="password" required>
-            <mat-error
-                *ngIf="registerForm.controls['password'].required && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+            <input matInput type="password" placeholder="Contraseña" formControlName="password" required>
+            <mat-error *ngIf="registerForm.controls.password.hasError('required')">
                 Este campo es requerido</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput type="password" placeholder="Confirmar contraseña" formControlName="confirmPassword" required>
-            <mat-error
-                *ngIf="registerForm.controls['confirmPassword'].required && (registerForm.controls['confirmPassword'].dirty || registerForm.controls['confirmPassword'].touched)">
+            <input matInput type="password" placeholder="Confirmar contraseña" formControlName="confirmPassword"
+                required pattern="{{ registerForm.controls.password.value }}">
+            <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('required')">
                 Este campo es requerido</mat-error>
+            <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('pattern')">
+                Las contraseñas no coinciden</mat-error>
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Nombre" formControlName="firstName" required>
-            <mat-error
-                *ngIf="registerForm.controls['firstName'].required && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)">
+            <mat-error *ngIf="registerForm.controls.firstName.hasError('required')">
                 Este campo es requerido</mat-error>
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Apellido" formControlName="lastName" required>
-            <mat-error
-                *ngIf="registerForm.controls['lastName'].required && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)">
+            <mat-error *ngIf="registerForm.controls.lastName.hasError('required')">
                 Este campo es requerido</mat-error>
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Email" formControlName="email" required>
-            <mat-error
-                *ngIf="registerForm.controls['email'].required && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+            <mat-error *ngIf="registerForm.controls.email.hasError('required')">
                 Este campo es requerido</mat-error>
+            <mat-error *ngIf="registerForm.controls.email.hasError('email')">
+                Ingrese un email válido</mat-error>
         </mat-form-field>
         <mat-form-field>
             <input matInput type="number" min="0" placeholder="Teléfono" formControlName="phone" required>
-            <mat-error
-                *ngIf="registerForm.controls['phone'].required && (registerForm.controls['phone'].dirty || registerForm.controls['phone'].touched)">
+            <mat-error *ngIf="registerForm.controls.phone.hasError('required')">
                 Este campo es requerido</mat-error>
         </mat-form-field>
     </div>
     <div class="actions" style="float: right;">
         <button mat-flat-button (click)="onCancel()">Cancel</button>
-        <button type="submit" (click)="onSubmit()" [disabled]="loading" mat-flat-button color="primary" [disabled]="!registerForm.valid">
+        <button type="submit" (click)="onSubmit()" [disabled]="loading" mat-flat-button color="primary"
+            [disabled]="!registerForm.valid">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Registro
         </button>

@@ -13,11 +13,8 @@ export class AppComponent {
   constructor(public dialog: MatDialog) {}
 
   openRegisterDialog() {
-    const dialogRef = this.dialog.open(RegisterDialogComponent, {
+    this.dialog.open(RegisterDialogComponent, {
       width: '40%'
-    });
-    dialogRef.afterClosed().subscribe(_ => {
-      console.log('its closed');
     });
   }
 

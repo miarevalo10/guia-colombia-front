@@ -18,12 +18,10 @@ export class UserService {
   }
 
   registerUser(user: {}): Observable<any> {
-    console.log('userr', user);
     const userSnakeCase = {};
     for (const key of Object.keys(user)) {
       userSnakeCase[this.toSnakeCase(key)] = user[key];
     }
-    console.log('transformed obj', userSnakeCase);
     return this.httpClient.post(this.usersUrl, userSnakeCase);
   }
 }
