@@ -11,3 +11,10 @@ before_script:
 script:
 - ng lint
 - ng build --prod --base-href https://miarevalo10.github.io/guia-colombia-front/
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/guia-colombia-front
+  on:
+    branch: master
