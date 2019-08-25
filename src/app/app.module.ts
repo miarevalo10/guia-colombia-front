@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatIconModule, MatToolbarModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { TravelListComponent } from './travel-list/travel-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TravelListComponent
   ],
   imports: [
     BrowserModule,
