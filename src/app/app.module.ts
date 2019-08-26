@@ -13,7 +13,7 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { FilterComponent } from './filter/filter.component';
 import { GuideListComponent } from './guide-list/guide-list.component';
-import {MatGridListModule} from "@angular/material/grid-list";
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [

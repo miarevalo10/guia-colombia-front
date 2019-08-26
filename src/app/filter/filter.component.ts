@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CityService } from '../city.service';
 import { Observable } from 'rxjs';
-import { City } from "../City";
-import { Category } from "../Category";
-import { CategoryService } from "../category.service";
+import { City } from '../City';
+import { Category } from '../Category';
+import { CategoryService } from '../category.service';
 
 @Component({
     selector: 'app-filter',
