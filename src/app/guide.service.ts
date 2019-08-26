@@ -11,26 +11,11 @@ export class GuideService {
     private GUIDE_SERVICE = `${environment.url}/guiaturismo/guide`;
     private guideList = [];
 
-    constructor(private httpClient:HttpClient) {
+    constructor(private httpClient: HttpClient ) {
     }
 
     getGuideList(): Observable<Guide[]> {
         this.guideList = [];
-        this.httpClient.get(this.GUIDE_SERVICE).subscribe((data: Array<any>) => {
-            data.forEach(dataItem => {
-                let guide = new Guide();
-                guide.id = dataItem.pk;
-                guide.name = dataItem.name;
-                guide.phrase = dataItem.phrase;
-                guide.photo = dataItem.photo;
-                guide.facebook = dataItem.facebook;
-                guide.instagram = dataItem.instagram;
-                guide.phone = dataItem.phone;
-                guide.email = dataItem.email;
-                guide.cityId = dataItem.cityId;
-                this.guideList.push(guide);
-            });
-        });
-        return of(this.guideList);
+        return this.httpClient.get<Guide[]>(this.GUIDE_SERVICE);
     }
 }

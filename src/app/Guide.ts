@@ -7,5 +7,6 @@ export class Guide {
     instagram: string;
     phone: string;
     email: string;
-    cityId: bigint;
+    city: {};
+    category: [];
 }

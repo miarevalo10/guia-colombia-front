@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatIconModule, MatToolbarModule, MatDialogModule, MatButtonModule, MatInputModule,
- MatFormFieldModule, MatProgressSpinnerModule, MatCardModule } from '@angular/material';
+ MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatChipsModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -39,7 +39,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
