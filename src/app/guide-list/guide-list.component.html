@@ -6,7 +6,7 @@
                     <mat-card-title>{{guide.name}}</mat-card-title>
                     <mat-card-subtitle>{{guide.phrase}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="{{guide.photo}}">
+                <img mat-card-image src="{{guide.photo}}"  width="760" height="427">
                 <mat-card-content>
                     <p><strong>Teléfono: </strong>{{guide.phone}}</p>
                     <p><strong>Ciudad: </strong>{{guide.city.name}}</p>
@@ -24,4 +24,4 @@
         </mat-grid-tile>
     </mat-grid-list>
 </div>
-<mat-paginator pageSize="{{pageSize}}" length="{{guideList.length}}" (page)="pageEvent = $event" (click)="paginate(-1)"></mat-paginator>
+<mat-paginator pageSize="{{pageSize}}" length="{{guideList.length}}" (page)="pageEvent = $event" (click)="paginate(-50)"></mat-paginator>

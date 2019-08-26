@@ -28,7 +28,7 @@ export class GuideListComponent implements OnInit {
 
     loadPage(value: Guide[]) {
         this.guideList = value;
-        this.paginate(1);
+        this.paginate(0);
     }
 
     paginate(page: number) {
@@ -38,7 +38,8 @@ export class GuideListComponent implements OnInit {
         } else {
             activePage = page;
         }
-        const start = (activePage - 1) * this.pageSize;
+        console.warn('page ' + activePage)
+        const start = activePage * this.pageSize;
         let end = start + this.pageSize;
         if (end >= this.guideList.length) {
             end = this.guideList.length;
