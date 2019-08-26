@@ -9,7 +9,7 @@ import {Guide} from '../Guide';
 })
 export class GuideListComponent implements OnInit {
 
-    private guideList = [];
+    guideList = [];
 
     constructor(private guideService: GuideService) {
     }

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {CityService} from '../city.service';
-import {Observable} from 'rxjs';
-import {City} from "../City";
-import {Category} from "../Category";
-import {CategoryService} from "../category.service";
+import { Component, OnInit } from '@angular/core';
+import { CityService } from '../city.service';
+import { Observable } from 'rxjs';
+import { City } from "../City";
+import { Category } from "../Category";
+import { CategoryService } from "../category.service";
 
 @Component({
     selector: 'app-filter',
@@ -11,8 +11,8 @@ import {CategoryService} from "../category.service";
     styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-    private cityList: City[];
-    private categoryList: Category[];
+    cityList: City[];
+    categoryList: Category[];
 
     constructor(private cityService: CityService, private categoryService: CategoryService) {
     }
@@ -22,7 +22,7 @@ export class FilterComponent implements OnInit {
         this.getCategoryList();
     }
 
-    getCityList(): void {
+    private getCityList(): void {
         this.cityService.getCityList().subscribe(cityList => this.cityList = cityList);
     }
 

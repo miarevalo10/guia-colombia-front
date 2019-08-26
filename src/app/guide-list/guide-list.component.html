@@ -1,8 +1,20 @@
 <mat-grid-list cols="2">
     <mat-grid-tile *ngFor="let guide of guideList">
-        <img src="{{guide.photo}}">
-        <h3>{{guide.name}}</h3>
-        <h3>{{guide.phrase}}</h3>
-        <h3>{{guide.phone}}</h3>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{guide.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{guide.photo}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    {{guide.phrase}}
+                    {{guide.phone}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>Ver guía</button>
+            </mat-card-actions>
+        </mat-card>
     </mat-grid-tile>
+
 </mat-grid-list>

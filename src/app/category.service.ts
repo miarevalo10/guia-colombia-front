@@ -10,7 +10,7 @@ import {environment} from '../environments/environment';
 export class CategoryService {
 
     CATEGORY_SERVICE = `${environment.url}/guiaturismo/category`
-    private categoryList: [];
+    categoryList: Category[];
 
     constructor(private httpClient: HttpClient) {
     }
