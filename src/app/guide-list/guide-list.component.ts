@@ -38,7 +38,7 @@ export class GuideListComponent implements OnInit {
         } else {
             activePage = page;
         }
-        console.warn('page ' + activePage)
+        console.warn('page ' + activePage);
         const start = activePage * this.pageSize;
         let end = start + this.pageSize;
         if (end >= this.guideList.length) {
