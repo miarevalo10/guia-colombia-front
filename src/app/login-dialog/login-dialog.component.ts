@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { UserService } from '../user.service';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -14,7 +15,7 @@ export class LoginDialogComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, public dialogRef: MatDialogRef<LoginDialogComponent>,
-              private userService: UserService, public dialog: MatDialog) { }
+              private authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -34,7 +35,8 @@ export class LoginDialogComponent implements OnInit {
   onSubmit() {
     console.log('login');
     if (this.loginForm.valid) {
-      this.userService.login(this.loginForm.value).subscribe(result => {
+      this.authService.signIn(this.loginForm.value).subscribe(result => {
+        console.log('result', result);
         this.dialogRef.close();
         const data = {
           title: 'Login exitoso',
@@ -44,7 +46,7 @@ export class LoginDialogComponent implements OnInit {
       }, (error => {
         const data = {
           title: 'Error',
-          description: 'Ocurrió un error en el login, por favor inténtelo de nuevp'
+          description: 'Ocurrió un error en el login, por favor inténtelo de nuevo'
         };
         this.openAlertDialog(data);
         console.error(error);
