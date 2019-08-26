@@ -1,0 +1,12 @@
+.example-card {
+    max-width: 80%;
+    max-height: auto;
+  }
+
+mat-grid-tile {
+    margin: 1em;
+}
+.list-container {
+    margin:2em;
+}
+  

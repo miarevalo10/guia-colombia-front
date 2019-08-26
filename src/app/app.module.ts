@@ -4,20 +4,26 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatIconModule, MatToolbarModule, MatDialogModule, MatButtonModule, MatInputModule,
- MatFormFieldModule, MatProgressSpinnerModule } from '@angular/material';
+ MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatChipsModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
+import { FilterComponent } from './filter/filter.component';
+import { GuideListComponent } from './guide-list/guide-list.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterDialogComponent,
     LoginDialogComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
+    RegisterDialogComponent,
+    FilterComponent,
+    GuideListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,10 @@ import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    MatCardModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

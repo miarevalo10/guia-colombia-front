@@ -1,0 +1,26 @@
+<div class="list-container">
+    <mat-grid-list cols="2">
+        <mat-grid-tile *ngFor="let guide of guideList">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>{{guide.name}}</mat-card-title>
+                    <mat-card-subtitle>{{guide.phrase}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{guide.photo}}">
+                <mat-card-content>
+                    <p><strong>Teléfono: </strong>{{guide.phone}}</p>
+                    <p><strong>Ciudad: </strong>{{guide.city.name}}</p>
+                    <p><strong>Instragram: </strong>{{guide.instagram}}</p>
+                    <p><strong>Facebook: </strong>{{guide.facebook}}</p>
+
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let category of guide.category">{{category.description}}</mat-chip>
+                    </mat-chip-list>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>Ver guía</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
