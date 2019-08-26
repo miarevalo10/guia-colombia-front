@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://guia-col-django.herokuapp.com'
+  url: 'http://localhost:8000'
 };
 
 /*

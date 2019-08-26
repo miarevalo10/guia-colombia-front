@@ -37,10 +37,10 @@ export class LoginDialogComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.signIn(this.loginForm.value).subscribe(result => {
         console.log('result', result);
-        this.dialogRef.close();
+        this.authService.addUserLocalStorage(result.token, result.user);
+        this.dialogRef.close({data: 'Succesful login'});
         const data = {
           title: 'Login exitoso',
-          description: 'Se realizó el login de manera correcta'
         };
         this.openAlertDialog(data);
       }, (error => {
