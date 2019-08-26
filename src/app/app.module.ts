@@ -14,7 +14,7 @@ import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { FilterComponent } from './filter/filter.component';
 import { GuideListComponent } from './guide-list/guide-list.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +40,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatProgressSpinnerModule,
     MatGridListModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
 <div class="list-container">
     <mat-grid-list cols="2">
-        <mat-grid-tile *ngFor="let guide of guideList">
+        <mat-grid-tile *ngFor="let guide of activeGuideList">
             <mat-card class="example-card">
                 <mat-card-header>
                     <mat-card-title>{{guide.name}}</mat-card-title>
@@ -24,3 +24,4 @@
         </mat-grid-tile>
     </mat-grid-list>
 </div>
+<mat-paginator pageSize="{{pageSize}}" length="{{guideList.length}}" (page)="pageEvent = $event" (click)="paginate(-1)"></mat-paginator>
