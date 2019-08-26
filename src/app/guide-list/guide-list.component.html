@@ -1,18 +1,17 @@
-<div class="list-container">
-    <mat-grid-list cols="2">
-        <mat-grid-tile *ngFor="let guide of guideList">
+<div class="list-container" >
+    <mat-grid-list cols="2" rowHeight="20rem">
+        <mat-grid-tile [colspan]="1" [rowspan]="2" *ngFor="let guide of activeGuideList">
             <mat-card class="example-card">
                 <mat-card-header>
                     <mat-card-title>{{guide.name}}</mat-card-title>
                     <mat-card-subtitle>{{guide.phrase}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="{{guide.photo}}">
+                <img mat-card-image src="{{guide.photo}}"  height="300">
                 <mat-card-content>
                     <p><strong>Teléfono: </strong>{{guide.phone}}</p>
                     <p><strong>Ciudad: </strong>{{guide.city.name}}</p>
                     <p><strong>Instragram: </strong>{{guide.instagram}}</p>
                     <p><strong>Facebook: </strong>{{guide.facebook}}</p>
-
                     <mat-chip-list>
                         <mat-chip *ngFor="let category of guide.category">{{category.description}}</mat-chip>
                     </mat-chip-list>
@@ -24,3 +23,4 @@
         </mat-grid-tile>
     </mat-grid-list>
 </div>
+<mat-paginator pageSize="{{pageSize}}" length="{{guideList.length}}" (page)="pageEvent = $event" (click)="paginate(-50)"></mat-paginator>
