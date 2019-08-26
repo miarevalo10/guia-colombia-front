@@ -33,10 +33,8 @@ export class LoginDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('login');
     if (this.loginForm.valid) {
       this.authService.signIn(this.loginForm.value).subscribe(result => {
-        console.log('result', result);
         this.authService.addUserLocalStorage(result.token, result.user);
         this.dialogRef.close({data: 'Succesful login'});
         const data = {

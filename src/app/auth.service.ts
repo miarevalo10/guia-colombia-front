@@ -32,6 +32,8 @@ export class AuthService {
     if (this.localStorageAvailable()) {
       localStorage.setItem(this.userTokenKey, token);
       localStorage.setItem(this.userKey, JSON.stringify(user));
+      this.userToken = localStorage.getItem(this.userTokenKey);
+      this.user = JSON.parse(localStorage.getItem(this.userKey));
     }
   }
 
@@ -43,6 +45,8 @@ export class AuthService {
     if (this.localStorageAvailable()) {
       localStorage.removeItem(this.userTokenKey);
       localStorage.removeItem(this.userKey);
+      this.user = null;
+      this.userTokenKey = '';
     }
   }
 

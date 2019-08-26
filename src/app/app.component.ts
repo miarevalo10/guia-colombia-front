@@ -17,14 +17,15 @@ export class AppComponent {
 
   constructor(public dialog: MatDialog,  private authService: AuthService) {
     this.validateLogin();
-    if (this.isLoggedIn) {
-      this.user = this.authService.user;
-    }
   }
 
   validateLogin() {
-    console.log('logged valdiation', this.authService.isLoggedIn());
     this.isLoggedIn = this.authService.isLoggedIn();
+    if ( this.isLoggedIn) {
+      this.user = this.authService.user;
+    } else {
+      this.user = null;
+    }
   }
 
   openRegisterDialog() {
@@ -39,7 +40,6 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
       if (result) {
         this.validateLogin();
       }
@@ -49,7 +49,6 @@ export class AppComponent {
   logout() {
     this.authService.removeTokenLocalStorage();
     this.validateLogin();
-    // window.location.reload();
   }
 
 }
