@@ -32,7 +32,7 @@ export class GuideListComponent implements OnInit {
     }
 
     paginate(page: number) {
-        let  activePage = 0;
+        let activePage = 0;
         if (page < 0) {
             activePage = this.pageEvent.pageIndex;
         } else {
