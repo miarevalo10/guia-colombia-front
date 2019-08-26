@@ -10,7 +10,7 @@ import {PageEvent} from '@angular/material/paginator';
 })
 export class GuideListComponent implements OnInit {
 
-    activeGuideList = []
+    activeGuideList = [];
     guideList = [];
     pageSize = 8;
     pageEvent: PageEvent;
@@ -32,10 +32,10 @@ export class GuideListComponent implements OnInit {
     }
 
     paginate(page: number) {
-        let  activePage = 0;
-        if (page < 0){
+        let activePage = 0;
+        if (page < 0) {
             activePage = this.pageEvent.pageIndex;
-        }else {
+        } else {
             activePage = page;
         }
         const start = (activePage - 1) * this.pageSize;
