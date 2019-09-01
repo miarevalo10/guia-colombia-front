@@ -1,21 +1,41 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <h1>Mi Guía Colombiana</h1>
-    <span class="menu-spacer"></span>
-    <div class="right-header">
-      <ng-container *ngIf="!isLoggedIn">
-          <a mat-button (click)="openLoginDialog()"> Login </a>
-          <a mat-button (click)="openRegisterDialog()"> Registro </a>
-      </ng-container>
-      <ng-container *ngIf="isLoggedIn">
-          <p style="display: inline">Bienvenido, {{user.first_name}}</p>
-          <a  style="display: inline" mat-button (click)="logout()"><mat-icon>exit_to_app</mat-icon></a>
-      </ng-container>
+    <mat-toolbar-row>
+        <h1>Mi Guía Colombiana</h1>
+        <span class="menu-spacer"></span>
+        <div class="right-header">
+            <ng-container *ngIf="!isLoggedIn">
+                <a mat-button (click)="openLoginDialog()">
+                    <mat-icon>transfer_within_a_station</mat-icon>
+                    Ingresar </a>
+                <a mat-button (click)="openRegisterDialog()">
+                    <mat-icon>how_to_reg</mat-icon>
+                    Registrarse </a>
+            </ng-container>
+            <ng-container *ngIf="isLoggedIn">
+                <p style="display: inline">Bienvenido, {{user.first_name}}</p>
+                <!-- <a style="display: inline" mat-button (click)="logout()">
+                     <mat-icon>exit_to_app</mat-icon>
+                 </a>-->
+                <span class="fill-remaining-space">
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                      <mat-icon>account_circle</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                      <button mat-menu-item (click)="openPasswordDialog()">
+                        <mat-icon>account_box</mat-icon>
+                        <span>Cambiar Contraseña</span>
+                      </button>
+                      <button mat-menu-item (click)="logout()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        <span>Salir</span>
+                      </button>
+                    </mat-menu>
+                </span>
+            </ng-container>
 
-    </div>
-  </mat-toolbar-row>
+        </div>
+    </mat-toolbar-row>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
-<!--<app-filter></app-filter>-->
-<app-guide-list></app-guide-list>
+<router-outlet>
+</router-outlet>

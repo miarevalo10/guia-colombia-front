@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { AuthService } from './auth.service';
+import {PasswordDialogComponent} from './password-dialog/password-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -43,6 +44,12 @@ export class AppComponent {
       if (result) {
         this.validateLogin();
       }
+    });
+  }
+
+  openPasswordDialog() {
+    this.dialog.open(PasswordDialogComponent, {
+      width: '40%'
     });
   }
 

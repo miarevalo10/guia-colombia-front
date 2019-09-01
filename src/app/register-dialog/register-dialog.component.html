@@ -1,6 +1,6 @@
-<h2>Registro</h2>
+<h2>Registro de Usuario</h2>
 <form [formGroup]="registerForm">
-    <div class="form-container">
+    <div class="form-container" style="max-height: 400px; overflow-y: auto">
         <mat-form-field>
             <input matInput placeholder="Login" formControlName="username" required>
             <mat-error *ngIf="registerForm.controls.username.hasError('required')">
@@ -43,9 +43,9 @@
         </mat-form-field>
     </div>
     <div style="float: right;">
-        <button mat-flat-button (click)="onCancel()">Cancel</button>
         <button type="submit" (click)="onSubmit()" mat-flat-button color="primary" [disabled]="!registerForm.valid">
-            Registro
+            Registrarse
         </button>
+        <button mat-flat-button (click)="onCancel()">Cancelar</button>
     </div>
 </form>
