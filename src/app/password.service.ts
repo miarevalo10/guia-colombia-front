@@ -11,9 +11,9 @@ export class PasswordService {
     constructor(private httpClient: HttpClient) {
     }
 
-    PASSWORD_SERVICE = `${environment.url}/password`;
+    PASSWORD_SERVICE = `${environment.url}/users/user/`;
 
     changePassword(password: {}): Observable<any> {
-        return this.httpClient.post(this.PASSWORD_SERVICE, password);
+        return this.httpClient.patch(this.PASSWORD_SERVICE, password);
     }
 }

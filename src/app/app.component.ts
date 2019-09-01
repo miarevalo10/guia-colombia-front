@@ -4,6 +4,7 @@ import { RegisterDialogComponent } from './register-dialog/register-dialog.compo
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { AuthService } from './auth.service';
 import {PasswordDialogComponent} from './password-dialog/password-dialog.component';
+import {UpdateProfileDialogComponent} from './update-profile-dialog/update-profile-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -58,4 +59,9 @@ export class AppComponent {
     this.validateLogin();
   }
 
+    openProfileUpdateDialog() {
+      this.dialog.open(UpdateProfileDialogComponent, {
+        width: '40%'
+      });
+    }
 }

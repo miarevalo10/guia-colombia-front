@@ -22,8 +22,12 @@
                     </button>
                     <mat-menu #menu="matMenu" [overlapTrigger]="false">
                       <button mat-menu-item (click)="openPasswordDialog()">
-                        <mat-icon>account_box</mat-icon>
+                        <mat-icon>https</mat-icon>
                         <span>Cambiar Contraseña</span>
+                      </button>
+                      <button mat-menu-item (click)="openProfileUpdateDialog()">
+                        <mat-icon>account_box</mat-icon>
+                        <span>Cambiar Info Perfil</span>
                       </button>
                       <button mat-menu-item (click)="logout()">
                         <mat-icon>exit_to_app</mat-icon>

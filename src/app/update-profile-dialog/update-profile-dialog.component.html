@@ -1,0 +1,26 @@
+<h2>Perfil del Usuario</h2>
+<form [formGroup]="updateProfileForm">
+    <div class="form-container">
+        <mat-form-field>
+            <input matInput placeholder="Nombre" formControlName="firstName" required>
+            <mat-error *ngIf="updateProfileForm.controls.firstName.hasError('required')">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Apellido" formControlName="lastName" required>
+            <mat-error *ngIf="updateProfileForm.controls.lastName.hasError('required')">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" min="0" placeholder="Teléfono" formControlName="phone" required>
+            <mat-error *ngIf="updateProfileForm.controls.phone.hasError('required')">
+                Este campo es requerido</mat-error>
+        </mat-form-field>
+    </div>
+    <div style="float: right;">
+        <button type="submit" (click)="onSubmit()" (keyup.enter)="onSubmit()" mat-flat-button color="primary" [disabled]="!updateProfileForm.valid">
+            Ingresar
+        </button>
+        <button mat-flat-button (click)="onCancel()">Cancelar</button>
+    </div>
+</form>

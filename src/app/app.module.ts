@@ -18,6 +18,7 @@ import {GuideListComponent} from './guide-list/guide-list.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {PasswordDialogComponent} from './password-dialog/password-dialog.component';
+import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import {PasswordDialogComponent} from './password-dialog/password-dialog.compone
         RegisterDialogComponent,
         FilterComponent,
         GuideListComponent,
-        PasswordDialogComponent
+        PasswordDialogComponent,
+        UpdateProfileDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -55,7 +57,8 @@ import {PasswordDialogComponent} from './password-dialog/password-dialog.compone
         RegisterDialogComponent,
         LoginDialogComponent,
         AlertDialogComponent,
-        PasswordDialogComponent
+        PasswordDialogComponent,
+        UpdateProfileDialogComponent,
     ]
 })
 export class AppModule {
