@@ -1,21 +1,23 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <h1>Mi Guía Colombiana</h1>
-    <span class="menu-spacer"></span>
-    <div class="right-header">
-      <ng-container *ngIf="!isLoggedIn">
-          <a mat-button (click)="openLoginDialog()"> Login </a>
-          <a mat-button (click)="openRegisterDialog()"> Registro </a>
-      </ng-container>
-      <ng-container *ngIf="isLoggedIn">
-          <p style="display: inline">Bienvenido, {{user.first_name}}</p>
-          <a  style="display: inline" mat-button (click)="logout()"><mat-icon>exit_to_app</mat-icon></a>
-      </ng-container>
-
-    </div>
-  </mat-toolbar-row>
+    <mat-toolbar-row>
+        <h1>Mi Guía Colombiana</h1>
+        <span class="menu-spacer"></span>
+        <div class="right-header">
+            <ng-container *ngIf="!isLoggedIn">
+                <a mat-button (click)="openLoginDialog()"> Login </a>
+                <a mat-button (click)="openRegisterDialog()"> Registro </a>
+            </ng-container>
+            <ng-container *ngIf="isLoggedIn">
+                <p style="display: inline">Bienvenido, {{user.first_name}}</p>
+                <a style="display: inline" mat-button (click)="logout()">
+                    <mat-icon>exit_to_app</mat-icon>
+                </a>
+            </ng-container>
+        </div>
+    </mat-toolbar-row>
 </mat-toolbar>
-
+<ng-container >
+    <app-main-guide-view></app-main-guide-view>
+    <!--<app-filter></app-filter>-->
+</ng-container>
 <router-outlet></router-outlet>
-<!--<app-filter></app-filter>-->
-<app-guide-list></app-guide-list>

@@ -15,6 +15,8 @@ import { FilterComponent } from './filter/filter.component';
 import { GuideListComponent } from './guide-list/guide-list.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { GuideComponent } from './guide/guide.component';
+import { MainGuideViewComponent } from './main-guide-view/main-guide-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AlertDialogComponent,
     RegisterDialogComponent,
     FilterComponent,
-    GuideListComponent
+    GuideListComponent,
+    GuideComponent,
+    MainGuideViewComponent
   ],
   imports: [
     BrowserModule,

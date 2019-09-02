@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {GuideService} from '../guide.service';
 import {Guide} from '../Guide';
 import {PageEvent} from '@angular/material/paginator';
@@ -14,6 +14,7 @@ export class GuideListComponent implements OnInit {
     guideList = [];
     pageSize = 8;
     pageEvent: PageEvent;
+    @Output() eventEmitter = new EventEmitter();
 
     constructor(private guideService: GuideService) {
     }
@@ -45,5 +46,10 @@ export class GuideListComponent implements OnInit {
             end = this.guideList.length;
         }
         this.activeGuideList = this.guideList.slice(start, end);
+    }
+
+    setGuide(selectedGuide: Guide) {
+        console.warn('le pego a select guide')
+        this.eventEmitter.emit(selectedGuide);
     }
 }

@@ -1,0 +1,10 @@
+<ng-container *ngIf=!detail>
+    <app-guide-list (eventEmitter)="showGuide($event)">
+
+    </app-guide-list>
+</ng-container>
+<ng-container *ngIf=detail>
+    <app-guide [guide] = guide (eventEmitter)="showList()"></app-guide>
+</ng-container>
+
+
