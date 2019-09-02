@@ -21,7 +21,7 @@ import {PasswordDialogComponent} from './password-dialog/password-dialog.compone
 import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
 import { Globals } from './globals';
 import { TourListComponent } from './tour-list/tour-list.component';
-import {MatListModule} from "@angular/material/list";
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
     declarations: [

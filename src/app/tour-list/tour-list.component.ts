@@ -24,7 +24,7 @@ export class TourListComponent implements OnInit {
 
     private loadPage(tourList: Tour[]) {
         this.tourList = tourList;
-        for (const tour of this.tourList){
+        for (const tour of this.tourList) {
             tour.activityList = tour.activities.split(';');
         }
         console.warn(tourList);
