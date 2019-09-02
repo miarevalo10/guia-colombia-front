@@ -46,9 +46,11 @@ export class GuideListComponent implements OnInit {
             end = this.guideList.length;
         }
         this.activeGuideList = this.guideList.slice(start, end);
+        console.log(this.activeGuideList);
+
     }
 
     openTour(id: number) {
-        this.router.navigateByUrl('/' + id + '/tours');
+        this.router.navigateByUrl(id + '/tours');
     }
 }

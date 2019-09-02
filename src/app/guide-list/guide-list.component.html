@@ -17,7 +17,7 @@
                     </mat-chip-list>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button (click)="openTour(guide.id)">Ver guía</button>
+                    <button mat-button [routerLink]="['tours', guide.id]" >Ver guía</button>
                 </mat-card-actions>
             </mat-card>
         </mat-grid-tile>
