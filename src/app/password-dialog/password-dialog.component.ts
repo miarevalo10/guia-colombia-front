@@ -57,10 +57,18 @@ export class PasswordDialogComponent implements OnInit {
                     };
                     this.openAlertDialog(data);
                 }, (error => {
-                    const data = {
-                        title: 'Error',
-                        description: 'Ocurrió un error al cambiar la contraseña, por favor inténtelo nuevamente'
-                    };
+                    let data = {};
+                    if (error.error[0] === 'The current password is wrong') {
+                        data = {
+                            title: 'Error',
+                            description: 'La contraseña actual ingresada es incorrecta'
+                        };
+                    } else {
+                        data = {
+                            title: 'Error',
+                            description: 'Ocurrió un error al cambiar la contraseña, por favor inténtelo nuevamente'
+                        };
+                    }
                     this.openAlertDialog(data);
                     console.error(error);
                 }));
