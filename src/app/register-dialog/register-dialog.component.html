@@ -13,11 +13,9 @@
         </mat-form-field>
         <mat-form-field>
             <input matInput type="password" placeholder="Confirmar contraseña" formControlName="confirmPassword"
-                required pattern="{{ registerForm.controls.password.value }}">
+                required>
             <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('required')">
                 Este campo es requerido</mat-error>
-            <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('pattern')">
-                Las contraseñas no coinciden</mat-error>
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Nombre" formControlName="firstName" required>

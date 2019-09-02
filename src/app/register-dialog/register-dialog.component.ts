@@ -14,7 +14,7 @@ export class RegisterDialogComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, public dialogRef: MatDialogRef<RegisterDialogComponent>,
-              private userService: UserService, public dialog: MatDialog) { }
+    private userService: UserService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -38,21 +38,29 @@ export class RegisterDialogComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      this.userService.registerUser(this.registerForm.value).subscribe(result => {
-        this.dialogRef.close();
+      if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
         const data = {
-          title: 'Registro exitoso',
-          description: 'El usuario se registró correctamente'
+          title: 'Error de Validación',
+          description: 'Las contraseñas no coinciden'
         };
         this.openAlertDialog(data);
-      }, (error => {
-        const data = {
-          title: 'Error',
-          description: 'Ocurrió un error en el registro, por favor inténtelo de nuevo'
-        };
-        this.openAlertDialog(data);
-        console.error(error);
-      }));
+      } else {
+        this.userService.registerUser(this.registerForm.value).subscribe(result => {
+          this.dialogRef.close();
+          const data = {
+            title: 'Registro exitoso',
+            description: 'El usuario se registró correctamente'
+          };
+          this.openAlertDialog(data);
+        }, (error => {
+          const data = {
+            title: 'Error',
+            description: 'Ocurrió un error en el registro, por favor inténtelo de nuevo'
+          };
+          this.openAlertDialog(data);
+          console.error(error);
+        }));
+      }
     }
   }
 
