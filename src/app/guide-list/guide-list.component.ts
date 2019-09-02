@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GuideService} from '../guide.service';
 import {Guide} from '../Guide';
 import {PageEvent} from '@angular/material/paginator';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-guide-list',
@@ -15,7 +16,7 @@ export class GuideListComponent implements OnInit {
     pageSize = 8;
     pageEvent: PageEvent;
 
-    constructor(private guideService: GuideService) {
+    constructor(private guideService: GuideService, private router: Router) {
     }
 
     ngOnInit() {
@@ -45,5 +46,9 @@ export class GuideListComponent implements OnInit {
             end = this.guideList.length;
         }
         this.activeGuideList = this.guideList.slice(start, end);
+    }
+
+    openTour(id: number) {
+        this.router.navigateByUrl('/' + id + '/tours');
     }
 }
