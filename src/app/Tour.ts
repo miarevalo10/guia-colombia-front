@@ -3,4 +3,5 @@ export class Tour {
     name: string;
     price: number;
     activities: string;
+    activityList: string[];
 }

@@ -4,12 +4,17 @@
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3" [rowspan]="1">
         <h2>Precio: {{tour.price}}</h2>
-        <mat-list *ngFor="let activity of tour.activities">
-            <!--            falta colocar el nombre real de la columna-->
-            <mat-list-item> {{activity}} </mat-list-item>
-        </mat-list>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3" [rowspan]="5">
-            <img src="{{tour.url_map_image}}">
+        <img src="{{tour.url_map_image}}">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="1" *ngFor="let activity of tour.activityList" align="left">
+        <mat-list>
+            <mat-list-item>
+                <h3 matLine>{{activity}}</h3>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+
+        </mat-list>
     </mat-grid-tile>
 </mat-grid-list>
