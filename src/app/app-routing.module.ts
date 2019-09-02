@@ -4,7 +4,7 @@ import {GuideListComponent} from './guide-list/guide-list.component';
 
 
 const routes: Routes = [
-    {path: '', component: GuideListComponent}
+        {path: '', component: GuideListComponent}
 ];
 
 @NgModule({
