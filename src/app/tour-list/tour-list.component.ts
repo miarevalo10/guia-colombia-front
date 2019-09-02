@@ -20,7 +20,7 @@ export class TourListComponent implements OnInit {
     }
 
     getTourList() {
-        this.tourId = Number(this.route.snapshot.paramMap.get('id'));
+        this.tourId = +(this.route.snapshot.paramMap.get('id'));
         this.tourService.getTourList(this.tourId).subscribe(value => this.loadPage(value));
     }
 
