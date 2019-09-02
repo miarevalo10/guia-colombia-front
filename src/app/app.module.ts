@@ -20,6 +20,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {PasswordDialogComponent} from './password-dialog/password-dialog.component';
 import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
 import { Globals } from './globals';
+import { TourListComponent } from './tour-list/tour-list.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
     declarations: [
@@ -31,7 +33,8 @@ import { Globals } from './globals';
         FilterComponent,
         GuideListComponent,
         PasswordDialogComponent,
-        UpdateProfileDialogComponent
+        UpdateProfileDialogComponent,
+        TourListComponent
     ],
     imports: [
         BrowserModule,
@@ -50,7 +53,8 @@ import { Globals } from './globals';
         MatCardModule,
         MatChipsModule,
         MatPaginatorModule,
-        MatMenuModule
+        MatMenuModule,
+        MatListModule
     ],
     providers: [Globals],
     bootstrap: [AppComponent],
