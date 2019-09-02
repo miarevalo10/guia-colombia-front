@@ -4,6 +4,7 @@ import { MatDialogRef, MatDialog } from '@angular/material';
 import { UserService } from '../user.service';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { AuthService } from '../auth.service';
+import { Globals } from '../globals';
 
 @Component({
   selector: 'app-login-dialog',
@@ -15,7 +16,7 @@ export class LoginDialogComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, public dialogRef: MatDialogRef<LoginDialogComponent>,
-              private authService: AuthService, public dialog: MatDialog) { }
+              private authService: AuthService, public dialog: MatDialog, private globals: Globals) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -35,7 +36,8 @@ export class LoginDialogComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.signIn(this.loginForm.value).subscribe(result => {
-        this.authService.addUserLocalStorage(result.token, result.user);
+        this.globals.setUser(result.user);
+        this.globals.setToken(result.token);
         this.dialogRef.close({data: 'Succesful login'});
         const data = {
           title: 'Login exitoso',

@@ -3,8 +3,10 @@ import { MatDialog } from '@angular/material';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { AuthService } from './auth.service';
-import {PasswordDialogComponent} from './password-dialog/password-dialog.component';
-import {UpdateProfileDialogComponent} from './update-profile-dialog/update-profile-dialog.component';
+import { PasswordDialogComponent } from './password-dialog/password-dialog.component';
+import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
+import { Globals } from './globals';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,17 +19,8 @@ export class AppComponent {
   isLoggedIn = false;
   user;
 
-  constructor(public dialog: MatDialog,  private authService: AuthService) {
-    this.validateLogin();
-  }
-
-  validateLogin() {
-    this.isLoggedIn = this.authService.isLoggedIn();
-    if ( this.isLoggedIn) {
-      this.user = this.authService.user;
-    } else {
-      this.user = null;
-    }
+  constructor(public dialog: MatDialog, private authService: AuthService, public globals: Globals,
+              private router: Router) {
   }
 
   openRegisterDialog() {
@@ -43,7 +36,7 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.validateLogin();
+        // this.validateLogin();
       }
     });
   }
@@ -55,13 +48,15 @@ export class AppComponent {
   }
 
   logout() {
-    this.authService.removeTokenLocalStorage();
-    this.validateLogin();
+    // this.authService.removeTokenLocalStorage();
+    this.globals.clearData();
+    this.router.navigate(['/']);
+    // this.validateLogin();
   }
 
-    openProfileUpdateDialog() {
-      this.dialog.open(UpdateProfileDialogComponent, {
-        width: '40%'
-      });
-    }
+  openProfileUpdateDialog() {
+    this.dialog.open(UpdateProfileDialogComponent, {
+      width: '40%'
+    });
+  }
 }

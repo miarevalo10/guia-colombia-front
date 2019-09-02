@@ -3,7 +3,7 @@
         <h1>Mi Guía Colombiana</h1>
         <span class="menu-spacer"></span>
         <div class="right-header">
-            <ng-container *ngIf="!isLoggedIn">
+            <ng-container *ngIf="globals.token=='0.0.0'">
                 <a mat-button (click)="openLoginDialog()">
                     <mat-icon>transfer_within_a_station</mat-icon>
                     Ingresar </a>
@@ -11,8 +11,8 @@
                     <mat-icon>how_to_reg</mat-icon>
                     Registrarse </a>
             </ng-container>
-            <ng-container *ngIf="isLoggedIn">
-                <p style="display: inline">Bienvenido, {{user.first_name}}</p>
+            <ng-container *ngIf="globals.token!=='0.0.0'">
+                <p style="display: inline">Bienvenido, {{globals.user.firstName}}</p>
                 <!-- <a style="display: inline" mat-button (click)="logout()">
                      <mat-icon>exit_to_app</mat-icon>
                  </a>-->

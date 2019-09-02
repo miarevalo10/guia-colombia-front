@@ -3,6 +3,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {ProfileService} from '../profile.service';
 import {AlertDialogComponent} from '../alert-dialog/alert-dialog.component';
+import { AuthService } from '../auth.service';
+import { UtilsService } from '../utils.service';
+import { User } from '../user';
+import { Globals } from '../globals';
 
 @Component({
     selector: 'app-update-profile-dialog',
@@ -14,7 +18,8 @@ export class UpdateProfileDialogComponent implements OnInit {
     updateProfileForm: FormGroup;
 
     constructor(private formBuilder: FormBuilder, public dialogRef: MatDialogRef<UpdateProfileDialogComponent>,
-                private profileService: ProfileService, public dialog: MatDialog) {
+                private profileService: ProfileService, public dialog: MatDialog, private authService: AuthService,
+                private utils: UtilsService, private globals: Globals, private utilsService: UtilsService) {
     }
 
     ngOnInit() {
@@ -22,10 +27,12 @@ export class UpdateProfileDialogComponent implements OnInit {
     }
 
     initializeForm() {
+        const user = this.globals.user;
+        console.log('user', user);
         this.updateProfileForm = this.formBuilder.group({
-            firstName: [null, {validators: [Validators.required]}],
-            lastName: [null, {validators: [Validators.required]}],
-            phone: [null, {validators: [Validators.required]}]
+            firstName: [user.firstName, {validators: [Validators.required]}],
+            lastName: [user.lastName, {validators: [Validators.required]}],
+            phone: [user.phone, {validators: [Validators.required]}]
         });
     }
 
@@ -36,6 +43,7 @@ export class UpdateProfileDialogComponent implements OnInit {
     onSubmit() {
         if (this.updateProfileForm.valid) {
             this.profileService.updateProfile(this.updateProfileForm.value).subscribe(result => {
+                this.globals.setUser(result);
                 this.dialogRef.close();
                 const data = {
                     title: 'Operación exitosa',

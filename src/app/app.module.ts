@@ -19,6 +19,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {PasswordDialogComponent} from './password-dialog/password-dialog.component';
 import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
+import { Globals } from './globals';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,7 @@ import { UpdateProfileDialogComponent } from './update-profile-dialog/update-pro
         MatPaginatorModule,
         MatMenuModule
     ],
-    providers: [],
+    providers: [Globals],
     bootstrap: [AppComponent],
     entryComponents: [
         RegisterDialogComponent,
