@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatDialog, MatDialogRef} from '@angular/material';
-import {AlertDialogComponent} from '../alert-dialog/alert-dialog.component';
-import {PasswordService} from '../password.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
+import { PasswordService } from '../password.service';
 
 @Component({
     selector: 'app-password-dialog',
@@ -23,9 +23,9 @@ export class PasswordDialogComponent implements OnInit {
 
     initializeForm() {
         this.passwordForm = this.formBuilder.group({
-            currentPassword: [null, {validators: [Validators.required]}],
-            password: [null, {validators: [Validators.required]}],
-            confirmPassword: [null, {validators: [Validators.required]}],
+            currentPassword: [null, { validators: [Validators.required] }],
+            password: [null, { validators: [Validators.required] }],
+            confirmPassword: [null, { validators: [Validators.required] }],
         });
     }
 
@@ -35,10 +35,17 @@ export class PasswordDialogComponent implements OnInit {
 
     onSubmit() {
         if (this.passwordForm.valid) {
+
             if (this.passwordForm.value.currentPassword === this.passwordForm.value.password) {
                 const data = {
                     title: 'Error de Validación',
-                    description: 'La contraseña nueva no debe ser igual a la contraseña actual'
+                    description: 'La contraseña nueva no puede ser igual a la contraseña actual'
+                };
+                this.openAlertDialog(data);
+            } else if (this.passwordForm.value.password !== this.passwordForm.value.confirmPassword) {
+                const data = {
+                    title: 'Error de Validación',
+                    description: 'Las contraseñas no coinciden'
                 };
                 this.openAlertDialog(data);
             } else {

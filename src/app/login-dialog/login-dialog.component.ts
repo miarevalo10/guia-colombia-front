@@ -44,12 +44,20 @@ export class LoginDialogComponent implements OnInit {
         };
         this.openAlertDialog(data);
       }, (error => {
-        const data = {
-          title: 'Error',
-          description: 'Ocurrió un error en el login, por favor inténtelo de nuevo'
-        };
+        let data = {};
+        if (error.error.non_field_errors) {
+          data = {
+            title: 'Error',
+            description: 'La contraseña o el username ingresados no son correctos'
+          };
+        } else {
+          data = {
+            title: 'Error',
+            description: 'Ocurrió un error en el login, por favor inténtelo de nuevo'
+          };
+        }
         this.openAlertDialog(data);
-        console.error(error);
+        console.error(error.error);
       }));
     }
   }
