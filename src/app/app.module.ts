@@ -22,6 +22,7 @@ import { UpdateProfileDialogComponent } from './update-profile-dialog/update-pro
 import { Globals } from './globals';
 import { TourListComponent } from './tour-list/tour-list.component';
 import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import {MatListModule} from '@angular/material/list';
         MatChipsModule,
         MatPaginatorModule,
         MatMenuModule,
-        MatListModule
+        MatListModule,
+        MatSelectModule
     ],
     providers: [Globals],
     bootstrap: [AppComponent],

@@ -13,6 +13,8 @@ import { CategoryService } from '../category.service';
 export class FilterComponent implements OnInit {
     cityList: City[];
     categoryList: Category[];
+    selectedCity = 0;
+    selectedCategory: 0;
 
     constructor(private cityService: CityService, private categoryService: CategoryService) {
     }

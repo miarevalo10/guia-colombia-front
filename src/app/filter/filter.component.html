@@ -1,26 +1,22 @@
-<div class="row">
-    <div class="column">
-        <div>
-            <h3>CIUDAD</h3>
-            <select name="cities">
-                <option *ngFor="let city of cityList" value={{city.id}}>
+<mat-grid-list cols="10" rowHeight="5rem">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <mat-form-field>
+            <mat-label>Ciudad</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let city of cityList" [value]="city.id">
                     {{city.name}}
-                </option>
-            </select>
-        </div>
-    </div>
-    <div class="column">
-        <div>
-            <h3>CATEGORIA</h3>
-            <select name="category">
-                <option *ngFor="let category of categoryList" value={{category.id}}>
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="5" [rowspan]="1">
+        <mat-form-field>
+            <mat-label>Ciudad</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let category of categoryList" [value]="category.id">
                     {{category.description}}
-                </option>
-            </select>
-        </div>
-    </div>
-</div>
-
-
-
-
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+</mat-grid-list>
