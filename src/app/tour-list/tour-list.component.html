@@ -1,20 +1,31 @@
-<mat-grid-list cols="6" rowHeight="3rem" *ngFor="let tour of tourList">
-    <mat-grid-tile [colspan]="3" [rowspan]="1">
-        <h2>Tour: {{tour.name}}</h2>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="3" [rowspan]="1">
-        <h2>Precio: {{tour.price}}</h2>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="3" [rowspan]="5">
-        <img src="{{tour.url_map_image}}">
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="3" [rowspan]="1" *ngFor="let activity of tour.activityList">
-        <mat-list>
-            <mat-list-item>
-                <h3 matLine>{{activity}}</h3>
-                <mat-divider></mat-divider>
-            </mat-list-item>
+<div class="tours-container">
+    <mat-card *ngFor="let tour of tourList">
+        <mat-grid-list cols="6" rowHeight="3rem">
 
-        </mat-list>
-    </mat-grid-tile>
-</mat-grid-list>
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <h2>Tour: {{tour.name}}</h2>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <h2>${{tour.price}}</h2>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="3" [rowspan]="5">
+                <img src="{{tour.url_map_image}}">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="3" [rowspan]="4">
+                <mat-list>
+                    <mat-list-item *ngFor="let activity of tour.activityList">
+                        <h3 matLine>{{activity}}</h3>
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+                </mat-list>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <button mat-raised-button (click)="sendEmail(tour.id)" [disabled]="loading">
+                    <mat-icon>mail_outline</mat-icon> Enviar email
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card>
+
+</div>

@@ -1,6 +1,8 @@
-<mat-toolbar color="primary">
+<div class="navbar-container">
+  <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <h1>Mi Guía Colombiana</h1>
+        <a class="home-link" [routerLink]="['/']"> <h1>Mi Guía Colombiana</h1></a>
+        
         <span class="menu-spacer"></span>
         <div class="right-header">
             <ng-container *ngIf="!globals.user">
@@ -36,10 +38,11 @@
                     </mat-menu>
                 </span>
             </ng-container>
-
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
+</div>
+
 
 <router-outlet>
 </router-outlet>

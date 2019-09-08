@@ -5,5 +5,9 @@
 }
 
 .list-container {
-  margin: 2em;
+  margin: 6rem;
+}
+
+mat-paginator {
+  background-color: rgb(233, 235, 238);
 }
