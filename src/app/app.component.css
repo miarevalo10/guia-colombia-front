@@ -1,12 +1,39 @@
 .right-header {
-    margin-right: 1em;
+  margin-right: 1em;
 }
 
 a {
-    cursor: pointer;
-    margin: 0.5em;
+  cursor: pointer;
+  margin: 0.5em;
 }
 
 .menu-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+router-outlet {
+  margin-top: 10rem;
+}
+
+.navbar-container {
+  overflow: hidden;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 998; 
+}
+
+.home-link {
+  text-decoration: none;
+}
+
+.home-link:link {
+  color: white;
+}
+
+.home-link:visited {
+  color: white;
 }
