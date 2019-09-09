@@ -9,3 +9,8 @@
     display: table;
     clear: both;
 }
+mat-grid-list {
+   padding-left: 3rem;
+   margin-left: 2rem;
+
+}

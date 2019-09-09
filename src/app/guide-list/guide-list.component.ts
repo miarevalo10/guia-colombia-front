@@ -3,6 +3,9 @@ import {GuideService} from '../guide.service';
 import {Guide} from '../Guide';
 import {PageEvent} from '@angular/material/paginator';
 import {Router} from '@angular/router';
+import {Globals} from '../globals';
+import {City} from '../City';
+import {Category} from '../Category';
 
 @Component({
     selector: 'app-guide-list',
@@ -15,8 +18,12 @@ export class GuideListComponent implements OnInit {
     guideList = [];
     pageSize = 8;
     pageEvent: PageEvent;
+    private selectedCity: City;
+    private selectedCategory: Category;
 
-    constructor(private guideService: GuideService, private router: Router) {
+    constructor(private guideService: GuideService,
+                private router: Router,
+                public globals: Globals) {
     }
 
     ngOnInit() {
@@ -52,5 +59,21 @@ export class GuideListComponent implements OnInit {
 
     openTour(id: number) {
         this.router.navigateByUrl(id + '/tours');
+    }
+
+    filterCity(city: City) {
+        this.selectedCity = city;
+        console.warn('City' + this.selectedCity);
+        if (this.selectedCategory) {
+            this.guideService.getFilteredList(this.selectedCity, this.selectedCategory).subscribe(value => this.loadPage(value));
+        }
+    }
+
+    filterCategory(category: Category) {
+        console.warn('Categoria' + category);
+        this.selectedCategory = category;
+        if (this.selectedCategory) {
+            this.guideService.getFilteredList(this.selectedCity, this.selectedCategory).subscribe(value => this.loadPage(value));
+        }
     }
 }
