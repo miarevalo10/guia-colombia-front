@@ -30,7 +30,7 @@ export class GuideListComponent implements OnInit {
         this.getGuideList();
     }
 
-    private getGuideList() {
+    getGuideList() {
         this.guideService.getGuideList().subscribe(value => this.loadPage(value));
     }
 
