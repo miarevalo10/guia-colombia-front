@@ -3,8 +3,8 @@ import {Observable, of} from 'rxjs';
 import {Guide} from './Guide';
 import {environment} from '../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {City} from "./City";
-import {Category} from "./Category";
+import {City} from './City';
+import {Category} from './Category';
 
 @Injectable({
     providedIn: 'root'

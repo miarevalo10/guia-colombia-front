@@ -29,14 +29,11 @@ export class FilterComponent implements OnInit {
     }
 
     private getCityList(): void {
-        this.cityList = this.cityService.getCityList();
-        // .subscribe(cityList => this.cityList = cityList);
+        this.cityService.getCityList().subscribe(cityList => this.cityList = cityList);
     }
 
     private getCategoryList() {
-        this.categoryList = this.categoryService.getCategoryList();
-        console.warn(this.categoryList);
-        // .subscribe(categoryList => this.categoryList = categoryList);
+        this.categoryService.getCategoryList().subscribe(categoryList => this.categoryList = categoryList);
     }
 
     selectCategory() {
