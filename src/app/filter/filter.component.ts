@@ -13,8 +13,10 @@ import {Globals} from '../globals';
 export class FilterComponent implements OnInit {
     cityList: City[];
     categoryList: Category[];
-    @Output() selectedCity: EventEmitter<City> = new EventEmitter();
-    @Output() selectedCategory: EventEmitter<Category> = new EventEmitter();
+    selectedCity: City;
+    selectedCategory: Category;
+    @Output() selectedCityEvent: EventEmitter<City> = new EventEmitter();
+    @Output() selectedCategoryEvent: EventEmitter<Category> = new EventEmitter();
 
     constructor(private cityService: CityService,
                 private categoryService: CategoryService,
@@ -22,7 +24,6 @@ export class FilterComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.warn('cargando filtros');
         this.getCityList();
         this.getCategoryList();
     }
@@ -30,7 +31,6 @@ export class FilterComponent implements OnInit {
     private getCityList(): void {
         this.cityList = this.cityService.getCityList();
         // .subscribe(cityList => this.cityList = cityList);
-        console.warn(this.cityList);
     }
 
     private getCategoryList() {
@@ -39,13 +39,13 @@ export class FilterComponent implements OnInit {
         // .subscribe(categoryList => this.categoryList = categoryList);
     }
 
-    selectCategory(category: Category) {
-        console.warn('category selected ' + category.description);
-        this.selectedCategory.emit(category);
+    selectCategory() {
+        console.warn('category selected ' + this.selectedCategory);
+        this.selectedCategoryEvent.emit(this.selectedCategory);
     }
 
-    selectCity(city: City) {
-        console.warn('city selected ' + city.name);
-        this.selectedCity.emit(city);
+    selectCity() {
+        console.warn('city selected ' + this.selectedCity);
+        this.selectedCityEvent.emit(this.selectedCity);
     }
 }

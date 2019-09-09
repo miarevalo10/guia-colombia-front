@@ -2,7 +2,7 @@
     <mat-grid-tile [colspan]="2" [rowspan]="1">
         <mat-form-field>
             <mat-label>Ciudad</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="selectedCity" (ngModelChange)="selectCity()">
                 <mat-option *ngFor="let city of cityList" [value]="city.id">
                     {{city.name}}
                 </mat-option>
@@ -12,7 +12,7 @@
     <mat-grid-tile [colspan]="5" [rowspan]="1">
         <mat-form-field>
             <mat-label>Categoria</mat-label>
-            <mat-select>
+            <mat-select  [(ngModel)]="selectedCategory" (ngModelChange)="selectCategory()">
                 <mat-option *ngFor="let category of categoryList" [value]="category.id">
                     {{category.description}}
                 </mat-option>
