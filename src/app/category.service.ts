@@ -17,22 +17,29 @@ export class CategoryService {
                 private globals: Globals) {
     }
 
-    getCategoryList(): Observable<Category[]> {
-        this.categoryList = [];
+    getCategoryList(): Category[] {
+        this.categoryList = [{
+            id: 1,
+            description: 'Museo'
+        },
+            {
+                id: 2,
+                description: 'Restaurante'
+            }];
 
-        const httpOptions = {
-            headers: new HttpHeaders({
-                Authorization: `Token ${this.globals.getToken()}`
-            })
-        };
-        this.httpClient.get(this.CATEGORY_SERVICE, httpOptions).subscribe((data: Array<any>) => {
-            data.forEach(dataItem => {
-                const category = new Category();
-                category.id = dataItem.pk;
-                category.description = dataItem.fields.description;
-                this.categoryList.push(category);
-            });
-        });
-        return of(this.categoryList);
+        // const httpOptions = {
+        //     headers: new HttpHeaders({
+        //         Authorization: `Token ${this.globals.getToken()}`
+        //     })
+        // };
+        // this.httpClient.get(this.CATEGORY_SERVICE, httpOptions).subscribe((data: Array<any>) => {
+        //     data.forEach(dataItem => {
+        //         const category = new Category();
+        //         category.id = dataItem.pk;
+        //         category.description = dataItem.fields.description;
+        //         this.categoryList.push(category);
+        //     });
+        // });
+        return this.categoryList;
     }
 }

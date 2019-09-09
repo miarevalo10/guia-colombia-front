@@ -5,11 +5,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {
     MatIconModule, MatToolbarModule, MatDialogModule, MatButtonModule, MatInputModule,
-    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatChipsModule, MatMenuModule
+    MatFormFieldModule, MatProgressSpinnerModule, MatCardModule, MatChipsModule, MatMenuModule, MatTableModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RegisterDialogComponent} from './register-dialog/register-dialog.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginDialogComponent} from './login-dialog/login-dialog.component';
 import {AlertDialogComponent} from './alert-dialog/alert-dialog.component';
@@ -18,9 +18,9 @@ import {GuideListComponent} from './guide-list/guide-list.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {PasswordDialogComponent} from './password-dialog/password-dialog.component';
-import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
-import { Globals } from './globals';
-import { TourListComponent } from './tour-list/tour-list.component';
+import {UpdateProfileDialogComponent} from './update-profile-dialog/update-profile-dialog.component';
+import {Globals} from './globals';
+import {TourListComponent} from './tour-list/tour-list.component';
 import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 
@@ -47,8 +47,8 @@ import {MatSelectModule} from '@angular/material/select';
         MatToolbarModule,
         MatDialogModule,
         MatButtonModule,
-        MatInputModule,
         MatFormFieldModule,
+        MatInputModule,
         MatProgressSpinnerModule,
         MatGridListModule,
         MatCardModule,
@@ -56,7 +56,9 @@ import {MatSelectModule} from '@angular/material/select';
         MatPaginatorModule,
         MatMenuModule,
         MatListModule,
-        MatSelectModule
+        MatSelectModule,
+        FormsModule,
+        MatTableModule
     ],
     providers: [Globals],
     bootstrap: [AppComponent],

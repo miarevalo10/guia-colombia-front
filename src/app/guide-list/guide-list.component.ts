@@ -3,6 +3,7 @@ import {GuideService} from '../guide.service';
 import {Guide} from '../Guide';
 import {PageEvent} from '@angular/material/paginator';
 import {Router} from '@angular/router';
+import {Globals} from '../globals';
 
 @Component({
     selector: 'app-guide-list',
@@ -16,7 +17,9 @@ export class GuideListComponent implements OnInit {
     pageSize = 8;
     pageEvent: PageEvent;
 
-    constructor(private guideService: GuideService, private router: Router) {
+    constructor(private guideService: GuideService,
+                private router: Router,
+                public globals: Globals) {
     }
 
     ngOnInit() {

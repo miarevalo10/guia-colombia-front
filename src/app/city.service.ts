@@ -17,23 +17,30 @@ export class CityService {
                 private globals: Globals) {
     }
 
-    getCityList(): Observable<City[]> {
-        this.cityList = [];
-        const httpOptions = {
-            headers: new HttpHeaders({
-                Authorization: `Token ${this.globals.getToken()}`
-            })
-        };
-
-        this.httpClient.get(this.CITY_SERVICE, httpOptions).subscribe((data: Array<any>) => {
-            data.forEach(dataItem => {
-                const city = new City();
-                city.id = dataItem.pk;
-                city.name = dataItem.fields.name;
-                this.cityList.push(city);
-            });
-        });
-        return of(this.cityList);
+    getCityList(): City[] {
+        this.cityList = [{
+            id: 1,
+            name: 'Bogota'
+        },
+            {
+                id: 2,
+                name: 'Medellin'
+            }];
+        // const httpOptions = {
+        //     headers: new HttpHeaders({
+        //         Authorization: `Token ${this.globals.getToken()}`
+        //     })
+        // };
+        //
+        // this.httpClient.get(this.CITY_SERVICE, httpOptions).subscribe((data: Array<any>) => {
+        //     data.forEach(dataItem => {
+        //         const city = new City();
+        //         city.id = dataItem.pk;
+        //         city.name = dataItem.fields.name;
+        //         this.cityList.push(city);
+        //     });
+        // });
+        return this.cityList;
     }
 
 

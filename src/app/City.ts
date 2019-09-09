@@ -1,5 +1,5 @@
 export class City {
-    id: bigint;
+    id: number;
     name: string;
 }
 
