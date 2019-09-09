@@ -1,5 +1,5 @@
 <mat-grid-list cols="10" rowHeight="5rem">
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <mat-grid-tile [colspan]="4" [rowspan]="1">
         <mat-form-field>
             <mat-label>Ciudad</mat-label>
             <mat-select [(ngModel)]="selectedCity" (ngModelChange)="selectCity()">
@@ -9,7 +9,8 @@
             </mat-select>
         </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="5" [rowspan]="1">
+    <mat-grid-tile [colspan]="2" [rowspan]="1"></mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="1">
         <mat-form-field>
             <mat-label>Categoria</mat-label>
             <mat-select  [(ngModel)]="selectedCategory" (ngModelChange)="selectCategory()">
