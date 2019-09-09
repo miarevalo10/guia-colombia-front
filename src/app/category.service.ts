@@ -25,7 +25,7 @@ export class CategoryService {
                 Authorization: `Token ${this.globals.getToken()}`
             })
         };
-        this.httpClient.get(this.CATEGORY_SERVICE, httpOptions).subscribe((data: Array<any>) => {
+        this.httpClient.get(this.CATEGORY_SERVICE).subscribe((data: Array<any>) => {
             data.forEach(dataItem => {
                 const category = new Category();
                 category.id = dataItem.pk;

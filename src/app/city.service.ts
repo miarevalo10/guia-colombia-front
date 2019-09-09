@@ -25,7 +25,7 @@ export class CityService {
             })
         };
 
-        this.httpClient.get(this.CITY_SERVICE, httpOptions).subscribe((data: Array<any>) => {
+        this.httpClient.get(this.CITY_SERVICE).subscribe((data: Array<any>) => {
             data.forEach(dataItem => {
                 const city = new City();
                 city.id = dataItem.pk;
