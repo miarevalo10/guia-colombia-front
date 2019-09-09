@@ -23,6 +23,8 @@ export class GuideService {
 
     getFilteredList(selectedCity: City, selectedCategory: Category): Observable<Guide[]> {
         this.guideList = [];
-        return this.httpClient.get<Guide[]>(this.GUIDE_SERVICE + '?cityId=' + selectedCity.id + '&categoryId=' + selectedCategory.id);
+        console.warn(selectedCity);
+        console.warn(selectedCategory);
+        return this.httpClient.get<Guide[]>(this.GUIDE_SERVICE + '?cityId=' + selectedCity + '&categoryId=' + selectedCategory);
     }
 }

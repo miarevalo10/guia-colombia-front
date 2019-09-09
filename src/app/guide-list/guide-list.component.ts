@@ -63,10 +63,12 @@ export class GuideListComponent implements OnInit {
 
     filterCity(city: City) {
         this.selectedCity = city;
+        console.warn('City' + city)
         this.guideService.getFilteredList(this.selectedCity, this.selectedCategory).subscribe(value => this.loadPage(value));
     }
 
     filterCategory(category: Category) {
+        console.warn('Categoria' + category)
         this.selectedCategory = category;
         this.guideService.getFilteredList(this.selectedCity, this.selectedCategory).subscribe(value => this.loadPage(value));
     }
